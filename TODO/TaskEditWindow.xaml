@@ -1,0 +1,51 @@
+<Window x:Class="TODO.TaskEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="编辑任务" Height="470" Width="520" WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize" Background="#F5F7FB">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="0,6,0,14" />
+            <Setter Property="Padding" Value="10,8" />
+            <Setter Property="BorderBrush" Value="#DDE2ED" />
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Margin" Value="0,6,0,14" />
+            <Setter Property="Height" Value="34" />
+        </Style>
+    </Window.Resources>
+    <Grid Margin="28">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="HeaderText" Text="新建任务" FontSize="24" FontWeight="Bold" Foreground="#172033" Margin="0,0,0,18" />
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="18" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="任务标题" Foreground="#59657A" />
+                <TextBox x:Name="TitleBox" />
+                <TextBlock Text="描述" Foreground="#59657A" />
+                <TextBox x:Name="DescriptionBox" Height="92" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+                <TextBlock Text="分类" Foreground="#59657A" />
+                <TextBox x:Name="CategoryBox" />
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="优先级" Foreground="#59657A" />
+                <ComboBox x:Name="PriorityBox" />
+                <TextBlock Text="截止日期" Foreground="#59657A" />
+                <DatePicker x:Name="DueDateBox" Margin="0,6,0,14" Height="34" />
+                <TextBlock Text="完成后的任务仍会保留，可在“已完成”中查看。" TextWrapping="Wrap" Foreground="#8B94A6" Margin="0,12,0,0" />
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="取消" Width="82" Padding="10,8" Margin="0,0,10,0" Click="Cancel_Click" />
+            <Button Content="保存任务" Width="100" Padding="10,8" Background="#5B5FEF" Foreground="White" BorderThickness="0" Click="Save_Click" />
+        </StackPanel>
+    </Grid>
+</Window>
